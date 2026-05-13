@@ -2,239 +2,247 @@
 <html><head>
 <meta charset="utf-8">
 <title>Bot Pipeline Dashboard — All Pipelines</title>
-<style>
-  * { box-sizing: border-box; }
-  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; max-width: 1100px; margin: 40px auto; padding: 0 20px; color: #24292f; line-height: 1.5; background: #fff; }
-  h1 { border-bottom: 2px solid #d0d7de; padding-bottom: 8px; }
-  h2 { border-bottom: 1px solid #d0d7de; padding-bottom: 6px; margin-top: 40px; color: #1a1a2e; }
-  h3 { margin-top: 24px; color: #333; }
-  table { border-collapse: collapse; width: 100%; margin: 12px 0; }
-  td, th { border: 1px solid #d0d7de; padding: 6px 10px; text-align: left; font-size: 0.92em; }
-  th { background: #f0f3f6; font-weight: 600; }
-  tr:nth-child(even) td { background: #f6f8fa; }
-  code { background: #f6f8fa; padding: 2px 6px; border-radius: 4px; font-size: 0.88em; }
-  a { color: #0969da; text-decoration: none; }
-  a:hover { text-decoration: underline; }
-  hr { border: none; border-top: 1px solid #d0d7de; margin: 32px 0; }
-  em { color: #656d76; font-size: 0.9em; }
-  .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 20px 0; }
-  .card { border: 1px solid #d0d7de; border-radius: 8px; padding: 16px; background: #f6f8fa; }
-  .card h3 { margin: 0 0 8px 0; font-size: 1.05em; border: none; padding: 0; }
-  .card .big { font-size: 2em; font-weight: 700; color: #0969da; }
-  .card .sub { font-size: 0.85em; color: #656d76; }
-  .pill { display: inline-block; padding: 2px 8px; border-radius: 12px; font-size: 0.8em; font-weight: 600; margin: 2px 2px; }
-  .pill-green { background: #dafbe1; color: #116329; }
-  .pill-red { background: #ffebe9; color: #82071e; }
-  .pill-yellow { background: #fff8c5; color: #6a5300; }
-  .pill-blue { background: #ddf4ff; color: #0550ae; }
-  .section-nav { display: flex; gap: 12px; margin: 16px 0; flex-wrap: wrap; }
-  .section-nav a { padding: 6px 14px; background: #f0f3f6; border-radius: 6px; font-weight: 500; font-size: 0.9em; }
-  .section-nav a:hover { background: #ddf4ff; }
-</style>
+<style>* { box-sizing: border-box; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; max-width: 1100px; margin: 40px auto; padding: 0 20px; color: #24292f; line-height: 1.5; background: #fff; }
+h1 { border-bottom: 2px solid #d0d7de; padding-bottom: 8px; }
+h2 { border-bottom: 1px solid #d0d7de; padding-bottom: 6px; margin-top: 40px; color: #1a1a2e; }
+h3 { margin-top: 24px; color: #333; }
+table { border-collapse: collapse; width: 100%; margin: 12px 0; }
+td, th { border: 1px solid #d0d7de; padding: 6px 10px; text-align: left; font-size: 0.92em; }
+th { background: #f0f3f6; font-weight: 600; }
+tr:nth-child(even) td { background: #f6f8fa; }
+code { background: #f6f8fa; padding: 2px 6px; border-radius: 4px; font-size: 0.88em; }
+a { color: #0969da; text-decoration: none; }
+a:hover { text-decoration: underline; }
+hr { border: none; border-top: 1px solid #d0d7de; margin: 32px 0; }
+em { color: #656d76; font-size: 0.9em; }
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin: 20px 0; }
+.card { border: 1px solid #d0d7de; border-radius: 8px; padding: 16px; background: #f6f8fa; }
+.card h3 { margin: 0 0 8px 0; font-size: 1.05em; border: none; padding: 0; }
+.card .big { font-size: 2em; font-weight: 700; color: #0969da; }
+.card .sub { font-size: 0.85em; color: #656d76; }
+.pill { display: inline-block; padding: 2px 8px; border-radius: 12px; font-size: 0.8em; font-weight: 600; margin: 2px 2px; }
+.pill-green { background: #dafbe1; color: #116329; }
+.pill-red { background: #ffebe9; color: #82071e; }
+.pill-yellow { background: #fff8c5; color: #6a5300; }
+.pill-blue { background: #ddf4ff; color: #0550ae; }
+.section-nav { display: flex; gap: 12px; margin: 16px 0; flex-wrap: wrap; }
+.section-nav a { padding: 6px 14px; background: #f0f3f6; border-radius: 6px; font-weight: 500; font-size: 0.9em; }
+.section-nav a:hover { background: #ddf4ff; }</style>
 </head><body>
-
 <h1>Bot Pipeline Dashboard</h1>
-<p><strong>Generated</strong>: 2026-05-12 &nbsp;|&nbsp; <strong>Scope</strong>: All RHAI/RHOAI projects (excl. TP) &nbsp;|&nbsp; <strong>Time range</strong>: All time</p>
+<p><strong>Generated</strong>: 2026-05-13 | <strong>Scope</strong>: All RHAI/RHOAI projects (excl. TP) | <strong>Time range</strong>: All time</p>
 
 <div class="section-nav">
   <a href="#autofix">jira-autofix</a>
   <a href="#rfe">rfe-creator</a>
   <a href="#strat">strat-creator</a>
+  <a href="#testplan">test-plan</a>
 </div>
 
 <div class="cards">
   <div class="card">
     <h3>jira-autofix</h3>
-    <div class="big">43</div>
-    <div class="sub">PRs merged &middot; 62% success rate</div>
-    <div class="sub" style="margin-top:4px">221 total issues &middot; 5 projects</div>
+    <div class="big">48</div>
+    <div class="sub">PRs merged &middot; 64.9% success rate</div>
+    <div class="sub">227 total issues &middot; 5 projects</div>
+    <div><span class="pill pill-green">merged 48</span><span class="pill pill-red">rejected 26</span><span class="pill pill-yellow">blocked 69</span></div>
   </div>
   <div class="card">
     <h3>rfe-creator</h3>
-    <div class="big">1,415</div>
-    <div class="sub">rubric pass &middot; 557 auto-created</div>
-    <div class="sub" style="margin-top:4px">1,736 total issues &middot; 5 projects</div>
+    <div class="big">1420</div>
+    <div class="sub">rubric pass &middot; 559 auto-created</div>
+    <div class="sub">1741 total issues &middot; 5 projects</div>
+    <div><span class="pill pill-green">rubric pass 1420</span><span class="pill pill-blue">created 559</span><span class="pill pill-yellow">attention 711</span></div>
   </div>
   <div class="card">
     <h3>strat-creator</h3>
-    <div class="big">167</div>
-    <div class="sub">rubric pass &middot; 210 auto-created</div>
-    <div class="sub" style="margin-top:4px">519 total issues &middot; RHAISTRAT + tagged</div>
+    <div class="big">174</div>
+    <div class="sub">rubric pass &middot; 217 auto-created</div>
+    <div class="sub">529 total issues &middot; 3 projects</div>
+    <div><span class="pill pill-green">rubric pass 174</span><span class="pill pill-blue">created 217</span><span class="pill pill-yellow">attention 43</span></div>
+  </div>
+  <div class="card">
+    <h3>test-plan</h3>
+    <div class="big">0</div>
+    <div class="sub">rubric pass &middot; 1 auto-created</div>
+    <div class="sub">1 total issues &middot; 1 projects</div>
+    <div><span class="pill pill-green">rubric pass 0</span><span class="pill pill-red">rubric fail 0</span><span class="pill pill-blue">auto-revised 0</span></div>
   </div>
 </div>
 
 <hr>
 
 <h2 id="autofix">jira-autofix Pipeline</h2>
-
 <h3>Pipeline Summary</h3>
-<table>
-<tr><th>Metric</th><th>Count</th></tr>
-<tr><td>Total unique issues</td><td><strong>221</strong></td></tr>
-<tr><td>In queue (ready for bot)</td><td>5</td></tr>
-<tr><td>Active (pending + review + ci-failing)</td><td>86</td></tr>
-<tr><td>Completed (merged)</td><td>43</td></tr>
+<table><tr><th>Metric</th><th>Count</th></tr>
+<tr><td>Total Unique Issues</td><td>227</td></tr>
+<tr><td>Queue</td><td>3</td></tr>
+<tr><td>Active (pending + review + ci-failing)</td><td>79</td></tr>
+<tr><td>Completed (merged)</td><td>48</td></tr>
 <tr><td>Failed (rejected + max-retries)</td><td>26</td></tr>
-<tr><td>Researched (no MR)</td><td>2</td></tr>
-<tr><td>Blocked (needs info)</td><td>59</td></tr>
-<tr><td><strong>Success rate</strong></td><td><strong>62%</strong> (43/69)</td></tr>
+<tr><td>Researched</td><td>2</td></tr>
+<tr><td>Blocked</td><td>69</td></tr>
+<tr><td>Success Rate</td><td>64.9%</td></tr>
 </table>
-
 <h3>Label Distribution</h3>
-<table>
-<tr><th>Label</th><th>Count</th><th>% of Total</th></tr>
-<tr><td><code>jira-autofix</code></td><td>219</td><td>99.1%</td></tr>
-<tr><td><code>jira-autofix-pending</code></td><td>7</td><td>3.2%</td></tr>
-<tr><td><code>jira-autofix-review</code></td><td>74</td><td>33.5%</td></tr>
-<tr><td><code>jira-autofix-ci-failing</code></td><td>6</td><td>2.7%</td></tr>
-<tr><td><code>jira-autofix-merged</code></td><td>43</td><td>19.5%</td></tr>
-<tr><td><code>jira-autofix-rejected</code></td><td>26</td><td>11.8%</td></tr>
+<table><tr><th>Label</th><th>Count</th><th>% of Total</th></tr>
+<tr><td><code>jira-autofix</code></td><td>225</td><td>99.1%</td></tr>
+<tr><td><code>jira-autofix-pending</code></td><td>9</td><td>4.0%</td></tr>
+<tr><td><code>jira-autofix-review</code></td><td>65</td><td>28.6%</td></tr>
+<tr><td><code>jira-autofix-ci-failing</code></td><td>8</td><td>3.5%</td></tr>
+<tr><td><code>jira-autofix-merged</code></td><td>48</td><td>21.1%</td></tr>
+<tr><td><code>jira-autofix-rejected</code></td><td>26</td><td>11.5%</td></tr>
 <tr><td><code>jira-autofix-max-retries</code></td><td>0</td><td>0.0%</td></tr>
 <tr><td><code>jira-autofix-researched</code></td><td>2</td><td>0.9%</td></tr>
-<tr><td><code>jira-autofix-blocked</code></td><td>59</td><td>26.7%</td></tr>
+<tr><td><code>jira-autofix-blocked</code></td><td>69</td><td>30.4%</td></tr>
 </table>
-<p><em>Issues may carry multiple labels; label counts sum to more than total unique issues.</em></p>
-
+<p><em>Note: Issues may carry multiple labels. The label distribution counts raw label occurrences; the pipeline summary deduplicates by highest-priority label.</em></p>
 <h3>By Project</h3>
-<table>
-<tr><th>Project</th><th>Queue</th><th>Active</th><th>Merged</th><th>Failed</th><th>Researched</th><th>Blocked</th><th>Total</th></tr>
-<tr><td><strong>AIPCC</strong></td><td>3</td><td>49</td><td>17</td><td>3</td><td>2</td><td>16</td><td>90</td></tr>
-<tr><td><strong>INFERENG</strong></td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>9</td><td>9</td></tr>
-<tr><td><strong>RHAIENG</strong></td><td>0</td><td>17</td><td>5</td><td>1</td><td>0</td><td>6</td><td>29</td></tr>
-<tr><td><strong>RHAIFIRST</strong></td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>1</td><td>1</td></tr>
-<tr><td><strong>RHOAIENG</strong></td><td>2</td><td>20</td><td>21</td><td>22</td><td>0</td><td>27</td><td>92</td></tr>
-<tr><td><strong>Total</strong></td><td><strong>5</strong></td><td><strong>86</strong></td><td><strong>43</strong></td><td><strong>26</strong></td><td><strong>2</strong></td><td><strong>59</strong></td><td><strong>221</strong></td></tr>
+<table><tr><th>Project</th><th>Queue</th><th>Active</th><th>Merged</th><th>Failed</th><th>Researched</th><th>Blocked</th><th>Total</th></tr>
+<tr><td>AIPCC</td><td>3</td><td>47</td><td>17</td><td>3</td><td>2</td><td>20</td><td>92</td></tr>
+<tr><td>INFERENG</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>10</td><td>10</td></tr>
+<tr><td>RHAIENG</td><td>0</td><td>10</td><td>9</td><td>1</td><td>0</td><td>10</td><td>30</td></tr>
+<tr><td>RHAIFIRST</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>1</td><td>1</td></tr>
+<tr><td>RHOAIENG</td><td>0</td><td>22</td><td>22</td><td>22</td><td>0</td><td>28</td><td>94</td></tr>
 </table>
-
-<h3>Blocked Issues (Top 15)</h3>
-<table>
-<tr><th>Issue</th><th>Summary</th><th>Project</th><th>Assignee</th><th>Since</th></tr>
+<h3>Blocked Issues (Attention Required)</h3>
+<table><tr><th>Issue</th><th>Summary</th><th>Project</th><th>Assignee</th><th>Since</th></tr>
+<tr><td><a href="https://redhat.atlassian.net/browse/AIPCC-16302" target="_blank">AIPCC-16302</a></td><td>SSH hostname resolution fails in disk-image-test pipeline due to trailing newlines in MAPT secret</td><td>AIPCC</td><td>Unassigned</td><td>2026-05-13</td></tr>
+<tr><td><a href="https://redhat.atlassian.net/browse/AIPCC-15628" target="_blank">AIPCC-15628</a></td><td>CI build failure: libcst 1.8.6 cannot build in network-isolated environment for spyre-ubi9</td><td>AIPCC</td><td>AIPCC JIRABOT</td><td>2026-05-13</td></tr>
+<tr><td><a href="https://redhat.atlassian.net/browse/INFERENG-6920" target="_blank">INFERENG-6920</a></td><td>habana-torch-plugin PEP 440 version &#x27;1.23.0.post1&#x27; rejected by vllm-gaudi config validation</td><td>INFERENG</td><td>Unassigned</td><td>2026-05-13</td></tr>
+<tr><td><a href="https://redhat.atlassian.net/browse/RHOAIENG-58424" target="_blank">RHOAIENG-58424</a></td><td>GenAI Playground: compare mode shows &quot;Start a new session?&quot; modal when no messages exist</td><td>RHOAIENG</td><td>Amina Baig</td><td>2026-05-13</td></tr>
+<tr><td><a href="https://redhat.atlassian.net/browse/RHAIENG-4956" target="_blank">RHAIENG-4956</a></td><td>Update hermeto image version in GHA CI prefetch scripts</td><td>RHAIENG</td><td>AIPCC JIRABOT</td><td>2026-05-12</td></tr>
+<tr><td><a href="https://redhat.atlassian.net/browse/AIPCC-15871" target="_blank">AIPCC-15871</a></td><td>polars: Verify MATURIN_PEP517_ARGS behavior</td><td>AIPCC</td><td>AIPCC JIRABOT</td><td>2026-05-12</td></tr>
+<tr><td><a href="https://redhat.atlassian.net/browse/RHOAIENG-61956" target="_blank">RHOAIENG-61956</a></td><td>[DSPA] Issue when gathering outputs from mutually exclusive branches using dsl.OneOf</td><td>RHOAIENG</td><td>Nelesh Singla</td><td>2026-05-12</td></tr>
+<tr><td><a href="https://redhat.atlassian.net/browse/RHAIENG-5009" target="_blank">RHAIENG-5009</a></td><td>No unit tests for ci/check-params-env.sh validation logic</td><td>RHAIENG</td><td>AIPCC JIRABOT</td><td>2026-05-12</td></tr>
+<tr><td><a href="https://redhat.atlassian.net/browse/RHAIENG-5006" target="_blank">RHAIENG-5006</a></td><td>No unit tests for scripts/cve/ (CVE scanning utilities)</td><td>RHAIENG</td><td>AIPCC JIRABOT</td><td>2026-05-12</td></tr>
+<tr><td><a href="https://redhat.atlassian.net/browse/AIPCC-15007" target="_blank">AIPCC-15007</a></td><td>Tensorflow is building from github instead of a gitlab mirror.</td><td>AIPCC</td><td>AIPCC JIRABOT</td><td>2026-05-12</td></tr>
+<tr><td><a href="https://redhat.atlassian.net/browse/RHAIENG-5016" target="_blank">RHAIENG-5016</a></td><td>Pull requests to branches other than main need to have branch name at the beginning of title, e.g. [rhoai-2.22]</td><td>RHAIENG</td><td>AIPCC JIRABOT</td><td>2026-05-12</td></tr>
+<tr><td><a href="https://redhat.atlassian.net/browse/RHOAIENG-58413" target="_blank">RHOAIENG-58413</a></td><td>GenAI Playground: max tokens not applied when configuring LlamaStack or during playground inference</td><td>RHOAIENG</td><td>John Haran</td><td>2026-05-12</td></tr>
+<tr><td><a href="https://redhat.atlassian.net/browse/RHOAIENG-58326" target="_blank">RHOAIENG-58326</a></td><td>disableISVBadges config option does not hide ISV badge labels on the Applications &gt; Explore page</td><td>RHOAIENG</td><td>Unassigned</td><td>2026-05-12</td></tr>
+<tr><td><a href="https://redhat.atlassian.net/browse/RHAIENG-4982" target="_blank">RHAIENG-4982</a></td><td>notebooks GHA: check-payload fails on s390x for /usr/bin/skopeo (magic number)</td><td>RHAIENG</td><td>Moryan Tchoumi Noukoua</td><td>2026-05-12</td></tr>
 <tr><td><a href="https://redhat.atlassian.net/browse/RHOAIENG-58423" target="_blank">RHOAIENG-58423</a></td><td>GenAI Playground: scroll to top/bottom chat arrows not centered</td><td>RHOAIENG</td><td>Unassigned</td><td>2026-05-12</td></tr>
-<tr><td><a href="https://redhat.atlassian.net/browse/RHOAIENG-58413" target="_blank">RHOAIENG-58413</a></td><td>GenAI Playground: max tokens not applied when configuring LlamaStack or dur</td><td>RHOAIENG</td><td>John Haran</td><td>2026-05-12</td></tr>
-<tr><td><a href="https://redhat.atlassian.net/browse/RHOAIENG-58326" target="_blank">RHOAIENG-58326</a></td><td>disableISVBadges config option does not hide ISV badge labels on the Applic</td><td>RHOAIENG</td><td>Unassigned</td><td>2026-05-12</td></tr>
-<tr><td><a href="https://redhat.atlassian.net/browse/RHAIENG-4982" target="_blank">RHAIENG-4982</a></td><td>notebooks GHA: check-payload fails on s390x for /usr/bin/skopeo (magic numb</td><td>RHAIENG</td><td>Moryan Tchoumi Noukoua</td><td>2026-05-12</td></tr>
-<tr><td><a href="https://redhat.atlassian.net/browse/RHAIENG-4906" target="_blank">RHAIENG-4906</a></td><td>Renovate: rocm7.1 and cuda13.0 base images not updated in lookup/info mode </td><td>RHAIENG</td><td>Andriana Theodorakopoulou</td><td>2026-05-12</td></tr>
-<tr><td><a href="https://redhat.atlassian.net/browse/AIPCC-15870" target="_blank">AIPCC-15870</a></td><td>xformers: Remove ignored NVCC_THREADS env var</td><td>AIPCC</td><td>Unassigned</td><td>2026-05-12</td></tr>
-<tr><td><a href="https://redhat.atlassian.net/browse/AIPCC-15866" target="_blank">AIPCC-15866</a></td><td>llama_cpp_python: Remove dead FORCE_CMAKE env var</td><td>AIPCC</td><td>Unassigned</td><td>2026-05-12</td></tr>
-<tr><td><a href="https://redhat.atlassian.net/browse/RHOAIENG-62101" target="_blank">RHOAIENG-62101</a></td><td>CVE-2026-39892 rhoai/odh-kserve-storage-initializer-rhel9: Cryptography: Bu</td><td>RHOAIENG</td><td>AIPCC JIRABOT</td><td>2026-05-11</td></tr>
-<tr><td><a href="https://redhat.atlassian.net/browse/RHOAIENG-61906" target="_blank">RHOAIENG-61906</a></td><td>[ccs Bug] Feast operator client ConfigMap omits registry block — breaks wor</td><td>RHOAIENG</td><td>Dana Brown</td><td>2026-05-11</td></tr>
-<tr><td><a href="https://redhat.atlassian.net/browse/RHOAIENG-60220" target="_blank">RHOAIENG-60220</a></td><td>[evalhub CLI]: Support passing benchmark parameters (e.g., tokenizer) via C</td><td>RHOAIENG</td><td>AIPCC JIRABOT</td><td>2026-05-11</td></tr>
-<tr><td><a href="https://redhat.atlassian.net/browse/RHAIFIRST-12" target="_blank">RHAIFIRST-12</a></td><td>Autofix bot: use rebase instead of merge and enable squash-on-merge</td><td>RHAIFIRST</td><td>AIPCC JIRABOT</td><td>2026-05-11</td></tr>
-<tr><td><a href="https://redhat.atlassian.net/browse/RHAIENG-5013" target="_blank">RHAIENG-5013</a></td><td>Multi-arch RPM consistency: compare installed RPM NVR across built images</td><td>RHAIENG</td><td>AIPCC JIRABOT</td><td>2026-05-11</td></tr>
-<tr><td><a href="https://redhat.atlassian.net/browse/RHAIENG-4654" target="_blank">RHAIENG-4654</a></td><td>Remove pylock-driven uv/micropipenv version injection from dockerfile_fragm</td><td>RHAIENG</td><td>AIPCC JIRABOT</td><td>2026-05-11</td></tr>
-<tr><td><a href="https://redhat.atlassian.net/browse/INFERENG-6840" target="_blank">INFERENG-6840</a></td><td>nm-cicd build scripts incompatible with upstream requirements/build.txt res</td><td>INFERENG</td><td>Unassigned</td><td>2026-05-11</td></tr>
-<tr><td><a href="https://redhat.atlassian.net/browse/INFERENG-6736" target="_blank">INFERENG-6736</a></td><td>NIXL Connector: Fix handshake failures not honoring kv_load_failure_policy</td><td>INFERENG</td><td>Nicolo Lucchesi</td><td>2026-05-11</td></tr>
 </table>
-<p><em>59 blocked issues total.</em></p>
-
-<hr>
 <h2 id="rfe">rfe-creator Pipeline</h2>
-
 <h3>Pipeline Summary</h3>
-<table>
-<tr><th>Metric</th><th>Count</th></tr>
-<tr><td>Total unique issues</td><td><strong>1736</strong></td></tr>
-<tr><td>Auto-created</td><td>557</td></tr>
-<tr><td>Auto-revised</td><td>480</td></tr>
+<table><tr><th>Metric</th><th>Count</th></tr>
+<tr><td>Total Unique Issues</td><td>1741</td></tr>
+<tr><td>Auto-Created</td><td>559</td></tr>
+<tr><td>Auto-Revised</td><td>480</td></tr>
 <tr><td>Split (original)</td><td>90</td></tr>
-<tr><td>Split (result)</td><td>326</td></tr>
-<tr><td>Rubric pass</td><td>1415</td></tr>
-<tr><td>Feasibility pass</td><td>183</td></tr>
-<tr><td>Feasibility fail</td><td>0</td></tr>
-<tr><td>Feasibility unknown</td><td>1</td></tr>
-<tr><td>Needs attention</td><td>708</td></tr>
-<tr><td>Ignored</td><td>165</td></tr>
+<tr><td>Split (result)</td><td>325</td></tr>
+<tr><td>Needs Attention</td><td>711</td></tr>
+<tr><td>Excluded (ignore)</td><td>165</td></tr>
+<tr><td>Quality Passed (rubric)</td><td>1420</td></tr>
+<tr><td>Feasibility Pass</td><td>188</td></tr>
+<tr><td>Feasibility Fail</td><td>0</td></tr>
+<tr><td>Feasibility Unknown</td><td>1</td></tr>
 </table>
 <h3>Label Distribution</h3>
-<table>
-<tr><th>Label</th><th>Count</th><th>% of Total</th></tr>
-<tr><td><code>rfe-creator-auto-created</code></td><td>557</td><td>32.1%</td></tr>
+<table><tr><th>Label</th><th>Count</th><th>% of Total</th></tr>
+<tr><td><code>rfe-creator-auto-created</code></td><td>559</td><td>32.1%</td></tr>
 <tr><td><code>rfe-creator-auto-revised</code></td><td>480</td><td>27.6%</td></tr>
 <tr><td><code>rfe-creator-split-original</code></td><td>90</td><td>5.2%</td></tr>
-<tr><td><code>rfe-creator-split-result</code></td><td>326</td><td>18.8%</td></tr>
-<tr><td><code>rfe-creator-autofix-rubric-pass</code></td><td>1415</td><td>81.5%</td></tr>
-<tr><td><code>rfe-creator-feasibility-pass</code></td><td>183</td><td>10.5%</td></tr>
+<tr><td><code>rfe-creator-split-result</code></td><td>325</td><td>18.7%</td></tr>
+<tr><td><code>rfe-creator-needs-attention</code></td><td>711</td><td>40.8%</td></tr>
+<tr><td><code>rfe-creator-ignore</code></td><td>165</td><td>9.5%</td></tr>
+<tr><td><code>rfe-creator-autofix-rubric-pass</code></td><td>1420</td><td>81.6%</td></tr>
+<tr><td><code>rfe-creator-feasibility-pass</code></td><td>188</td><td>10.8%</td></tr>
 <tr><td><code>rfe-creator-feasibility-fail</code></td><td>0</td><td>0.0%</td></tr>
 <tr><td><code>rfe-creator-feasibility-unknown</code></td><td>1</td><td>0.1%</td></tr>
-<tr><td><code>rfe-creator-needs-attention</code></td><td>708</td><td>40.8%</td></tr>
-<tr><td><code>rfe-creator-ignore</code></td><td>165</td><td>9.5%</td></tr>
 </table>
-<p><em>Issues carry multiple labels across pipeline stages.</em></p>
 <h3>By Project</h3>
-<table>
-<tr><th>Project</th><th>Created</th><th>Revised</th><th>Split (orig)</th><th>Split (result)</th><th>Rubric Pass</th><th>Feas. Pass</th><th>Attention</th><th>Ignored</th></tr>
-<tr><td><strong>AIPCC</strong></td><td>0</td><td>0</td><td>0</td><td>0</td><td>2</td><td>0</td><td>0</td><td>0</td></tr>
-<tr><td><strong>RHAIENG</strong></td><td>1</td><td>0</td><td>0</td><td>0</td><td>1</td><td>0</td><td>1</td><td>0</td></tr>
-<tr><td><strong>RHAIRFE</strong></td><td>458</td><td>439</td><td>89</td><td>289</td><td>1209</td><td>166</td><td>625</td><td>161</td></tr>
-<tr><td><strong>RHAISTRAT</strong></td><td>98</td><td>40</td><td>1</td><td>37</td><td>201</td><td>17</td><td>81</td><td>4</td></tr>
-<tr><td><strong>RHOAIENG</strong></td><td>0</td><td>1</td><td>0</td><td>0</td><td>2</td><td>0</td><td>1</td><td>0</td></tr>
+<table><tr><th>Project</th><th>Created</th><th>Revised</th><th>Rubric Pass</th><th>Attention</th><th>Excluded</th><th>Total</th></tr>
+<tr><td>AIPCC</td><td>0</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
+<tr><td>RHAIENG</td><td>1</td><td>0</td><td>1</td><td>1</td><td>0</td><td>1</td></tr>
+<tr><td>RHAIRFE</td><td>458</td><td>439</td><td>1211</td><td>627</td><td>161</td><td>1521</td></tr>
+<tr><td>RHAISTRAT</td><td>100</td><td>40</td><td>204</td><td>82</td><td>4</td><td>215</td></tr>
+<tr><td>RHOAIENG</td><td>0</td><td>1</td><td>2</td><td>1</td><td>0</td><td>2</td></tr>
 </table>
-<h3>Needs Attention (Top 15)</h3>
-<table>
-<tr><th>Issue</th><th>Summary</th><th>Project</th><th>Since</th></tr>
-<tr><td><a href="https://redhat.atlassian.net/browse/RHAISTRAT-1744" target="_blank">RHAISTRAT-1744</a></td><td>Interactive playground for evaluating AI pipelines without full deployment</td><td>RHAISTRAT</td><td>2026-05-12</td></tr>
-<tr><td><a href="https://redhat.atlassian.net/browse/RHAISTRAT-1742" target="_blank">RHAISTRAT-1742</a></td><td>Deploy agent images from AI Hub Agents Deployments page</td><td>RHAISTRAT</td><td>2026-05-12</td></tr>
-<tr><td><a href="https://redhat.atlassian.net/browse/RHAISTRAT-1740" target="_blank">RHAISTRAT-1740</a></td><td>Agent Catalog: Discovery and Deployment of Agent Starter Kits in RHOAI</td><td>RHAISTRAT</td><td>2026-05-12</td></tr>
-<tr><td><a href="https://redhat.atlassian.net/browse/RHAISTRAT-1733" target="_blank">RHAISTRAT-1733</a></td><td>Enable OpenClaw Agent Deployment and Operation on Red Hat OpenShift AI</td><td>RHAISTRAT</td><td>2026-05-12</td></tr>
-<tr><td><a href="https://redhat.atlassian.net/browse/RHAISTRAT-1704" target="_blank">RHAISTRAT-1704</a></td><td>pgvector Support for AutoRAG</td><td>RHAISTRAT</td><td>2026-05-12</td></tr>
-<tr><td><a href="https://redhat.atlassian.net/browse/RHAISTRAT-1698" target="_blank">RHAISTRAT-1698</a></td><td>Automated AI Security Evaluation Orchestration for Model Validation Pipeline [Ev</td><td>RHAISTRAT</td><td>2026-05-12</td></tr>
-<tr><td><a href="https://redhat.atlassian.net/browse/RHAISTRAT-1566" target="_blank">RHAISTRAT-1566</a></td><td>EvalHub UI: Evaluation Run Configuration Validation and Primary Metric Selection</td><td>RHAISTRAT</td><td>2026-05-12</td></tr>
-<tr><td><a href="https://redhat.atlassian.net/browse/RHAISTRAT-1565" target="_blank">RHAISTRAT-1565</a></td><td>EvalHub UI: Configurable Quality Thresholds for Benchmarks and Evaluation Collec</td><td>RHAISTRAT</td><td>2026-05-12</td></tr>
-<tr><td><a href="https://redhat.atlassian.net/browse/RHAISTRAT-1556" target="_blank">RHAISTRAT-1556</a></td><td>Model Type and Capability Metadata Schema with API Filtering</td><td>RHAISTRAT</td><td>2026-05-12</td></tr>
-<tr><td><a href="https://redhat.atlassian.net/browse/RHAIRFE-2234" target="_blank">RHAIRFE-2234</a></td><td>Runtime Version Compatibility Detection and Resolution via Project Navigator</td><td>RHAIRFE</td><td>2026-05-12</td></tr>
-<tr><td><a href="https://redhat.atlassian.net/browse/RHAIRFE-2233" target="_blank">RHAIRFE-2233</a></td><td>RBAC Audit and Namespace Onboarding via Project Navigator</td><td>RHAIRFE</td><td>2026-05-12</td></tr>
-<tr><td><a href="https://redhat.atlassian.net/browse/RHAIRFE-2171" target="_blank">RHAIRFE-2171</a></td><td>GPU Resource Declaration for Custom EvalHub Adapters</td><td>RHAIRFE</td><td>2026-05-12</td></tr>
-<tr><td><a href="https://redhat.atlassian.net/browse/RHAIRFE-2131" target="_blank">RHAIRFE-2131</a></td><td>[GA] Perses Admin Observability Dashboards for RHOAI</td><td>RHAIRFE</td><td>2026-05-12</td></tr>
-<tr><td><a href="https://redhat.atlassian.net/browse/RHAIRFE-2068" target="_blank">RHAIRFE-2068</a></td><td>Enable OpenCode Agent Deployment and Operation on Red Hat OpenShift AI</td><td>RHAIRFE</td><td>2026-05-12</td></tr>
-<tr><td><a href="https://redhat.atlassian.net/browse/RHAISTRAT-1572" target="_blank">RHAISTRAT-1572</a></td><td>[TP] Productize MCP Gateway Operator for RHOAI</td><td>RHAISTRAT</td><td>2026-05-12</td></tr>
+<h3>Needs Attention</h3>
+<table><tr><th>Issue</th><th>Summary</th><th>Project</th><th>Assignee</th><th>Updated</th></tr>
+<tr><td><a href="https://redhat.atlassian.net/browse/RHAISTRAT-1549" target="_blank">RHAISTRAT-1549</a></td><td>MaaS Model Endpoint Detail Page — Per-Model Subscription Context and Token Limits</td><td>RHAISTRAT</td><td>Unassigned</td><td>2026-05-13</td></tr>
+<tr><td><a href="https://redhat.atlassian.net/browse/RHAISTRAT-1746" target="_blank">RHAISTRAT-1746</a></td><td>Existing Vector Store Addition/Registration in gen AI studio</td><td>RHAISTRAT</td><td>Christopher Jones</td><td>2026-05-13</td></tr>
+<tr><td><a href="https://redhat.atlassian.net/browse/RHAISTRAT-1750" target="_blank">RHAISTRAT-1750</a></td><td>Load starter prompts from global registry namespaces in Gen AI Studio playground</td><td>RHAISTRAT</td><td>Christopher Jones</td><td>2026-05-13</td></tr>
+<tr><td><a href="https://redhat.atlassian.net/browse/RHAISTRAT-1740" target="_blank">RHAISTRAT-1740</a></td><td>Agent Catalog: Discovery and Deployment of Agent Starter Kits in RHOAI</td><td>RHAISTRAT</td><td>Unassigned</td><td>2026-05-13</td></tr>
+<tr><td><a href="https://redhat.atlassian.net/browse/RHAISTRAT-1759" target="_blank">RHAISTRAT-1759</a></td><td>Upgrade Developer Sandbox to RHOAI 3.4 with Pre-Configured Feature Experiences</td><td>RHAISTRAT</td><td>Unassigned</td><td>2026-05-13</td></tr>
+<tr><td><a href="https://redhat.atlassian.net/browse/RHAIRFE-2172" target="_blank">RHAIRFE-2172</a></td><td>Upgrade Developer Sandbox to RHOAI 3.4 with Pre-Configured Feature Experiences</td><td>RHAIRFE</td><td>Unassigned</td><td>2026-05-13</td></tr>
+<tr><td><a href="https://redhat.atlassian.net/browse/RHAISTRAT-1552" target="_blank">RHAISTRAT-1552</a></td><td>Add MaaS quotas/info to AI Asset Endpoints Page</td><td>RHAISTRAT</td><td>Unassigned</td><td>2026-05-13</td></tr>
+<tr><td><a href="https://redhat.atlassian.net/browse/RHAISTRAT-1556" target="_blank">RHAISTRAT-1556</a></td><td>Model Type and Capability Metadata Schema with API Filtering</td><td>RHAISTRAT</td><td>Nick Gagan</td><td>2026-05-13</td></tr>
+<tr><td><a href="https://redhat.atlassian.net/browse/RHAISTRAT-1733" target="_blank">RHAISTRAT-1733</a></td><td>Enable OpenClaw Agent Deployment and Operation on Red Hat OpenShift AI</td><td>RHAISTRAT</td><td>Aakanksha Duggal</td><td>2026-05-13</td></tr>
+<tr><td><a href="https://redhat.atlassian.net/browse/RHAIRFE-2238" target="_blank">RHAIRFE-2238</a></td><td>Support Lightweight LLM Inference on Resource-Constrained and Edge Hardware</td><td>RHAIRFE</td><td>Unassigned</td><td>2026-05-13</td></tr>
+<tr><td><a href="https://redhat.atlassian.net/browse/RHAIRFE-2237" target="_blank">RHAIRFE-2237</a></td><td>[GA] Claude Code Enterprise Integration via MaaS Gateway</td><td>RHAIRFE</td><td>Jonathan Zarecki</td><td>2026-05-13</td></tr>
+<tr><td><a href="https://redhat.atlassian.net/browse/RHAIRFE-2109" target="_blank">RHAIRFE-2109</a></td><td>[GA] RHOAI Observability Stack — Automated Day-0 Lifecycle Management for COO, OTel, Tempo, and Loki</td><td>RHAIRFE</td><td>Christian Vogt</td><td>2026-05-13</td></tr>
+<tr><td><a href="https://redhat.atlassian.net/browse/RHAISTRAT-1586" target="_blank">RHAISTRAT-1586</a></td><td>OTEL-based agent trace ingestion into managed MLflow via Kagenti</td><td>RHAISTRAT</td><td>Roland Huss</td><td>2026-05-13</td></tr>
+<tr><td><a href="https://redhat.atlassian.net/browse/RHAISTRAT-1524" target="_blank">RHAISTRAT-1524</a></td><td>Surface model cold-start and vRAM metrics in Model Catalog</td><td>RHAISTRAT</td><td>Adysen Rothman</td><td>2026-05-13</td></tr>
+<tr><td><a href="https://redhat.atlassian.net/browse/RHAIRFE-284" target="_blank">RHAIRFE-284</a></td><td>Provide Sandboxed Execution Environments for Autonomous AI Agents</td><td>RHAIRFE</td><td>Roland Huss</td><td>2026-05-13</td></tr>
 </table>
-<p><em>708 issues needing attention total.</em></p>
-
-<hr>
 <h2 id="strat">strat-creator Pipeline</h2>
-
 <h3>Pipeline Summary</h3>
-<table>
-<tr><th>Metric</th><th>Count</th></tr>
-<tr><td>Total unique issues</td><td><strong>519</strong></td></tr>
-<tr><td>Auto-created</td><td>210</td></tr>
-<tr><td>Auto-refined</td><td>198</td></tr>
-<tr><td>Rubric pass</td><td>167</td></tr>
-<tr><td>Tagged 3.5</td><td>463</td></tr>
-<tr><td>Needs attention</td><td>42</td></tr>
-<tr><td>Epics created</td><td>0</td></tr>
+<table><tr><th>Metric</th><th>Count</th></tr>
+<tr><td>Total Unique Issues</td><td>529</td></tr>
+<tr><td>Auto-Created</td><td>217</td></tr>
+<tr><td>Auto-Refined</td><td>205</td></tr>
+<tr><td>Quality Passed (rubric)</td><td>174</td></tr>
+<tr><td>Release Tagged (3.5)</td><td>468</td></tr>
+<tr><td>Needs Attention</td><td>43</td></tr>
+<tr><td>Epics Created</td><td>0</td></tr>
 </table>
 <h3>Label Distribution</h3>
-<table>
-<tr><th>Label</th><th>Count</th><th>% of Total</th></tr>
-<tr><td><code>strat-creator-auto-created</code></td><td>210</td><td>40.5%</td></tr>
-<tr><td><code>strat-creator-auto-refined</code></td><td>198</td><td>38.2%</td></tr>
-<tr><td><code>strat-creator-rubric-pass</code></td><td>167</td><td>32.2%</td></tr>
-<tr><td><code>strat-creator-3.5</code></td><td>463</td><td>89.2%</td></tr>
-<tr><td><code>strat-creator-needs-attention</code></td><td>42</td><td>8.1%</td></tr>
+<table><tr><th>Label</th><th>Count</th><th>% of Total</th></tr>
+<tr><td><code>strat-creator-auto-created</code></td><td>217</td><td>41.0%</td></tr>
+<tr><td><code>strat-creator-auto-refined</code></td><td>205</td><td>38.8%</td></tr>
+<tr><td><code>strat-creator-rubric-pass</code></td><td>174</td><td>32.9%</td></tr>
+<tr><td><code>strat-creator-3.5</code></td><td>468</td><td>88.5%</td></tr>
+<tr><td><code>strat-creator-needs-attention</code></td><td>43</td><td>8.1%</td></tr>
 <tr><td><code>strat-epics-created</code></td><td>0</td><td>0.0%</td></tr>
 </table>
-<h3>Needs Attention (Top 15)</h3>
-<table>
-<tr><th>Issue</th><th>Summary</th><th>Project</th><th>Since</th></tr>
-<tr><td><a href="https://redhat.atlassian.net/browse/RHAISTRAT-1742" target="_blank">RHAISTRAT-1742</a></td><td>Deploy agent images from AI Hub Agents Deployments page</td><td>RHAISTRAT</td><td>2026-05-12</td></tr>
-<tr><td><a href="https://redhat.atlassian.net/browse/RHAISTRAT-1577" target="_blank">RHAISTRAT-1577</a></td><td>Kueue Quota Hierarchy Visualization and Management in OpenShift AI Dashboard</td><td>RHAISTRAT</td><td>2026-05-12</td></tr>
-<tr><td><a href="https://redhat.atlassian.net/browse/RHAISTRAT-1572" target="_blank">RHAISTRAT-1572</a></td><td>[TP] Productize MCP Gateway Operator for RHOAI</td><td>RHAISTRAT</td><td>2026-05-12</td></tr>
-<tr><td><a href="https://redhat.atlassian.net/browse/RHAISTRAT-1741" target="_blank">RHAISTRAT-1741</a></td><td>[TP] MaaS Multi-Tenancy — Per-Tenant Gateway and Identity Isolation</td><td>RHAISTRAT</td><td>2026-05-11</td></tr>
-<tr><td><a href="https://redhat.atlassian.net/browse/RHAISTRAT-432" target="_blank">RHAISTRAT-432</a></td><td>Integrate Kueue Workload Scheduling Information in Model Deployments Overview</td><td>RHAISTRAT</td><td>2026-05-11</td></tr>
-<tr><td><a href="https://redhat.atlassian.net/browse/RHAISTRAT-1750" target="_blank">RHAISTRAT-1750</a></td><td>Load starter prompts from global registry namespaces in Gen AI Studio playground</td><td>RHAISTRAT</td><td>2026-05-10</td></tr>
-<tr><td><a href="https://redhat.atlassian.net/browse/RHAISTRAT-1499" target="_blank">RHAISTRAT-1499</a></td><td>Code Interpreter Tool Type for the Responses API</td><td>RHAISTRAT</td><td>2026-05-10</td></tr>
-<tr><td><a href="https://redhat.atlassian.net/browse/RHAISTRAT-1727" target="_blank">RHAISTRAT-1727</a></td><td>Cross-namespace shared workspace access for curated resources</td><td>RHAISTRAT</td><td>2026-05-09</td></tr>
-<tr><td><a href="https://redhat.atlassian.net/browse/RHAISTRAT-1562" target="_blank">RHAISTRAT-1562</a></td><td>User-Level Secrets Management in Gen AI Studio</td><td>RHAISTRAT</td><td>2026-05-09</td></tr>
-<tr><td><a href="https://redhat.atlassian.net/browse/RHAISTRAT-1172" target="_blank">RHAISTRAT-1172</a></td><td>Red Hat AI Inference UI MVP</td><td>RHAISTRAT</td><td>2026-05-08</td></tr>
-<tr><td><a href="https://redhat.atlassian.net/browse/RHAISTRAT-1708" target="_blank">RHAISTRAT-1708</a></td><td>AI hub catalog - table view</td><td>RHAISTRAT</td><td>2026-05-07</td></tr>
-<tr><td><a href="https://redhat.atlassian.net/browse/RHAISTRAT-1688" target="_blank">RHAISTRAT-1688</a></td><td>RHEL AI bootc image based on RHEL for NVIDIA </td><td>RHAISTRAT</td><td>2026-05-07</td></tr>
-<tr><td><a href="https://redhat.atlassian.net/browse/RHAISTRAT-1687" target="_blank">RHAISTRAT-1687</a></td><td>OpenShift AI on OpenShift for NVIDIA</td><td>RHAISTRAT</td><td>2026-05-07</td></tr>
-<tr><td><a href="https://redhat.atlassian.net/browse/RHAISTRAT-1683" target="_blank">RHAISTRAT-1683</a></td><td>Dataset Registry for GenAI Workflows — Register, Discover, and Connect Datasets </td><td>RHAISTRAT</td><td>2026-05-07</td></tr>
-<tr><td><a href="https://redhat.atlassian.net/browse/RHAISTRAT-1677" target="_blank">RHAISTRAT-1677</a></td><td>OGX (Llama Stack) MCP Registry Integration</td><td>RHAISTRAT</td><td>2026-05-07</td></tr>
+<h3>By Project</h3>
+<table><tr><th>Project</th><th>Created</th><th>Refined</th><th>Rubric Pass</th><th>Release Tagged</th><th>Attention</th><th>Epics</th><th>Total</th></tr>
+<tr><td>RHAIENG</td><td>0</td><td>0</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
+<tr><td>RHAIRFE</td><td>0</td><td>0</td><td>0</td><td>308</td><td>0</td><td>0</td><td>308</td></tr>
+<tr><td>RHAISTRAT</td><td>217</td><td>205</td><td>174</td><td>159</td><td>43</td><td>0</td><td>220</td></tr>
 </table>
-<p><em>42 issues needing attention total.</em></p>
-
-<hr>
-<p style="text-align:center; color:#656d76; font-size:0.85em;">Generated 2026-05-12 via pipeline-tracker skill &nbsp;|&nbsp; Data source: Jira REST API v3</p>
+<h3>Needs Attention</h3>
+<table><tr><th>Issue</th><th>Summary</th><th>Project</th><th>Assignee</th><th>Updated</th></tr>
+<tr><td><a href="https://redhat.atlassian.net/browse/RHAISTRAT-1750" target="_blank">RHAISTRAT-1750</a></td><td>Load starter prompts from global registry namespaces in Gen AI Studio playground</td><td>RHAISTRAT</td><td>Christopher Jones</td><td>2026-05-13</td></tr>
+<tr><td><a href="https://redhat.atlassian.net/browse/RHAISTRAT-1727" target="_blank">RHAISTRAT-1727</a></td><td>Cross-namespace shared workspace access for curated resources</td><td>RHAISTRAT</td><td>Unassigned</td><td>2026-05-13</td></tr>
+<tr><td><a href="https://redhat.atlassian.net/browse/RHAISTRAT-1753" target="_blank">RHAISTRAT-1753</a></td><td>Kagenti and OpenShell Coexistence Spike</td><td>RHAISTRAT</td><td>Unassigned</td><td>2026-05-13</td></tr>
+<tr><td><a href="https://redhat.atlassian.net/browse/RHAISTRAT-1586" target="_blank">RHAISTRAT-1586</a></td><td>OTEL-based agent trace ingestion into managed MLflow via Kagenti</td><td>RHAISTRAT</td><td>Roland Huss</td><td>2026-05-13</td></tr>
+<tr><td><a href="https://redhat.atlassian.net/browse/RHAISTRAT-1577" target="_blank">RHAISTRAT-1577</a></td><td>Kueue Quota Hierarchy Visualization and Management in OpenShift AI Dashboard</td><td>RHAISTRAT</td><td>Rob Bell</td><td>2026-05-13</td></tr>
+<tr><td><a href="https://redhat.atlassian.net/browse/RHAISTRAT-1713" target="_blank">RHAISTRAT-1713</a></td><td>Backward Compatible Route/Gateway API Endpoints for Migration (3.5)</td><td>RHAISTRAT</td><td>Unassigned</td><td>2026-05-12</td></tr>
+<tr><td><a href="https://redhat.atlassian.net/browse/RHAISTRAT-1742" target="_blank">RHAISTRAT-1742</a></td><td>Deploy agent images from AI Hub Agents Deployments page</td><td>RHAISTRAT</td><td>Gage Krumbach</td><td>2026-05-12</td></tr>
+<tr><td><a href="https://redhat.atlassian.net/browse/RHAISTRAT-1572" target="_blank">RHAISTRAT-1572</a></td><td>[TP] Productize MCP Gateway Operator for RHOAI</td><td>RHAISTRAT</td><td>Lindani Phiri</td><td>2026-05-12</td></tr>
+<tr><td><a href="https://redhat.atlassian.net/browse/RHAISTRAT-432" target="_blank">RHAISTRAT-432</a></td><td>Integrate Kueue Workload Scheduling Information in Model Deployments Overview</td><td>RHAISTRAT</td><td>Adnan Khan</td><td>2026-05-11</td></tr>
+<tr><td><a href="https://redhat.atlassian.net/browse/RHAISTRAT-1499" target="_blank">RHAISTRAT-1499</a></td><td>Code Interpreter Tool Type for the Responses API</td><td>RHAISTRAT</td><td>Sumanth Kamenani</td><td>2026-05-10</td></tr>
+<tr><td><a href="https://redhat.atlassian.net/browse/RHAISTRAT-1562" target="_blank">RHAISTRAT-1562</a></td><td>User-Level Secrets Management in Gen AI Studio</td><td>RHAISTRAT</td><td>Unassigned</td><td>2026-05-09</td></tr>
+<tr><td><a href="https://redhat.atlassian.net/browse/RHAISTRAT-1172" target="_blank">RHAISTRAT-1172</a></td><td>Red Hat AI Inference UI MVP</td><td>RHAISTRAT</td><td>Andy Stoneberg</td><td>2026-05-08</td></tr>
+<tr><td><a href="https://redhat.atlassian.net/browse/RHAISTRAT-1541" target="_blank">RHAISTRAT-1541</a></td><td>Inference Time Scaling (IST) in gen AI studio playground</td><td>RHAISTRAT</td><td>Unassigned</td><td>2026-05-07</td></tr>
+<tr><td><a href="https://redhat.atlassian.net/browse/RHAISTRAT-1543" target="_blank">RHAISTRAT-1543</a></td><td>[RFE] Customers requires expose llm-d via OpenShift route in RHOAI 3</td><td>RHAISTRAT</td><td>Unassigned</td><td>2026-05-07</td></tr>
+<tr><td><a href="https://redhat.atlassian.net/browse/RHAISTRAT-1545" target="_blank">RHAISTRAT-1545</a></td><td>[TP] MaaS Consumer Portal — Self-Service Endpoint Access, API Key Management, and Usage Visibility</td><td>RHAISTRAT</td><td>Unassigned</td><td>2026-05-07</td></tr>
+</table>
+<h2 id="testplan">test-plan Pipeline</h2>
+<h3>Pipeline Summary</h3>
+<table><tr><th>Metric</th><th>Count</th></tr>
+<tr><td>Total Unique Issues</td><td>1</td></tr>
+<tr><td>Auto-Created</td><td>1</td></tr>
+<tr><td>Rubric Pass</td><td>0</td></tr>
+<tr><td>Rubric Fail</td><td>0</td></tr>
+<tr><td>Auto-Revised</td><td>0</td></tr>
+<tr><td>Quality Rate</td><td>0%</td></tr>
+</table>
+<h3>Label Distribution</h3>
+<table><tr><th>Label</th><th>Count</th><th>% of Total</th></tr>
+<tr><td><code>test-plan-auto-created</code></td><td>1</td><td>100.0%</td></tr>
+<tr><td><code>test-plan-rubric-pass</code></td><td>0</td><td>0.0%</td></tr>
+<tr><td><code>test-plan-rubric-fail</code></td><td>0</td><td>0.0%</td></tr>
+<tr><td><code>test-plan-auto-revised</code></td><td>0</td><td>0.0%</td></tr>
+</table>
+<h3>By Project</h3>
+<table><tr><th>Project</th><th>Created</th><th>Rubric Pass</th><th>Rubric Fail</th><th>Auto-Revised</th><th>Total</th></tr>
+<tr><td>RHAISTRAT</td><td>1</td><td>0</td><td>0</td><td>0</td><td>1</td></tr>
+</table>
+<h3>Quality Issues (Rubric Fail)</h3>
+<p><em>No rubric-fail issues found.</em></p>
 </body></html>
