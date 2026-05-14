@@ -1,7 +1,5 @@
 <!DOCTYPE html>
-<html><head>
-<meta charset="utf-8">
-<title>Bot Pipeline Dashboard — All Pipelines</title>
+<html><head><meta charset="utf-8"><title>Bot Pipeline Dashboard — All Pipelines</title>
 <style>* { box-sizing: border-box; }
 body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; max-width: 1100px; margin: 40px auto; padding: 0 20px; color: #24292f; line-height: 1.5; background: #fff; }
 h1 { border-bottom: 2px solid #d0d7de; padding-bottom: 8px; }
@@ -28,177 +26,149 @@ em { color: #656d76; font-size: 0.9em; }
 .pill-blue { background: #ddf4ff; color: #0550ae; }
 .section-nav { display: flex; gap: 12px; margin: 16px 0; flex-wrap: wrap; }
 .section-nav a { padding: 6px 14px; background: #f0f3f6; border-radius: 6px; font-weight: 500; font-size: 0.9em; }
-.section-nav a:hover { background: #ddf4ff; }</style>
-</head><body>
+.section-nav a:hover { background: #ddf4ff; }</style></head><body>
 <h1>Bot Pipeline Dashboard</h1>
-<p><strong>Generated</strong>: 2026-05-13 | <strong>Scope</strong>: All RHAI/RHOAI projects (excl. TP) | <strong>Time range</strong>: All time</p>
-
+<p><strong>Generated</strong>: 2026-05-14 | <strong>Scope</strong>: All RHAI/RHOAI projects | <strong>Time range</strong>: All time</p>
 <div class="section-nav">
-  <a href="#autofix">jira-autofix</a>
-  <a href="#rfe">rfe-creator</a>
-  <a href="#strat">strat-creator</a>
-  <a href="#testplan">test-plan</a>
-</div>
-
-<div class="cards">
-  <div class="card">
-    <h3>jira-autofix</h3>
-    <div class="big">48</div>
-    <div class="sub">PRs merged &middot; 64.9% success rate</div>
-    <div class="sub">227 total issues &middot; 5 projects</div>
-    <div><span class="pill pill-green">merged 48</span><span class="pill pill-red">rejected 26</span><span class="pill pill-yellow">blocked 69</span></div>
-  </div>
-  <div class="card">
-    <h3>rfe-creator</h3>
-    <div class="big">1420</div>
-    <div class="sub">rubric pass &middot; 559 auto-created</div>
-    <div class="sub">1741 total issues &middot; 5 projects</div>
-    <div><span class="pill pill-green">rubric pass 1420</span><span class="pill pill-blue">created 559</span><span class="pill pill-yellow">attention 711</span></div>
-  </div>
-  <div class="card">
-    <h3>strat-creator</h3>
-    <div class="big">174</div>
-    <div class="sub">rubric pass &middot; 217 auto-created</div>
-    <div class="sub">529 total issues &middot; 3 projects</div>
-    <div><span class="pill pill-green">rubric pass 174</span><span class="pill pill-blue">created 217</span><span class="pill pill-yellow">attention 43</span></div>
-  </div>
-  <div class="card">
-    <h3>test-plan</h3>
-    <div class="big">0</div>
-    <div class="sub">rubric pass &middot; 1 auto-created</div>
-    <div class="sub">1 total issues &middot; 1 projects</div>
-    <div><span class="pill pill-green">rubric pass 0</span><span class="pill pill-red">rubric fail 0</span><span class="pill pill-blue">auto-revised 0</span></div>
-  </div>
-</div>
-
-<hr>
-
+<a href="#autofix">jira-autofix</a>
+<a href="#rfe">rfe-creator</a>
+<a href="#strat">strat-creator</a>
+<a href="#testplan">test-plan</a>
+<a href="#docpipeline">doc-pipeline</a>
+</div><div class="cards">
+<div class="card"><h3>jira-autofix</h3><div class="big">48</div><div class="sub">PRs merged &middot; 64.9% success rate</div><div class="sub">863 total issues &middot; 5 projects</div><div style="margin-top:8px"><span class="pill pill-green">merged 48</span><span class="pill pill-red">failed 26</span><span class="pill pill-yellow">blocked 117</span></div></div>
+<div class="card"><h3>rfe-creator</h3><div class="big">1422</div><div class="sub">rubric pass &middot; 2 auto-created</div><div class="sub">1743 total issues &middot; 5 projects</div><div style="margin-top:8px"><span class="pill pill-green">rubric pass 1422</span><span class="pill pill-blue">created 2</span><span class="pill pill-yellow">attention 91</span></div></div>
+<div class="card"><h3>strat-creator</h3><div class="big">175</div><div class="sub">rubric pass &middot; 1 auto-created</div><div class="sub">533 total issues &middot; 3 projects</div><div style="margin-top:8px"><span class="pill pill-green">rubric pass 175</span><span class="pill pill-blue">created 1</span><span class="pill pill-yellow">attention 8</span></div></div>
+<div class="card"><h3>test-plan</h3><div class="big">1</div><div class="sub">rubric pass &middot; 1 auto-created</div><div class="sub">2 total issues &middot; 1 projects</div><div style="margin-top:8px"><span class="pill pill-green">rubric pass 1</span><span class="pill pill-red">rubric fail 0</span><span class="pill pill-blue">auto-revised 0</span></div></div>
+<div class="card"><h3>doc-pipeline</h3><div class="big">9</div><div class="sub">docs contributed &middot; 0 invoked</div><div class="sub">9 total issues &middot; 2 projects</div><div style="margin-top:8px"><span class="pill pill-green">contributed 9</span><span class="pill pill-blue">invoked 0</span><span class="pill pill-yellow">queued 0</span></div></div>
+</div><hr>
 <h2 id="autofix">jira-autofix Pipeline</h2>
-<h3>Pipeline Summary</h3>
-<table><tr><th>Metric</th><th>Count</th></tr>
-<tr><td>Total Unique Issues</td><td>227</td></tr>
-<tr><td>Queue</td><td>3</td></tr>
-<tr><td>Active (pending + review + ci-failing)</td><td>79</td></tr>
-<tr><td>Completed (merged)</td><td>48</td></tr>
-<tr><td>Failed (rejected + max-retries)</td><td>26</td></tr>
+<h3>Pipeline Summary</h3><table><tr><th>Metric</th><th>Count</th></tr>
+<tr><td>Total issues</td><td>863</td></tr>
+<tr><td>Queue</td><td>179</td></tr>
+<tr><td>Active</td><td>491</td></tr>
+<tr><td>Merged</td><td>48</td></tr>
+<tr><td>Failed</td><td>26</td></tr>
 <tr><td>Researched</td><td>2</td></tr>
-<tr><td>Blocked</td><td>69</td></tr>
-<tr><td>Success Rate</td><td>64.9%</td></tr>
+<tr><td>Blocked</td><td>117</td></tr>
+<tr><td><strong>Success rate</strong></td><td><strong>64.9%</strong></td></tr>
 </table>
-<h3>Label Distribution</h3>
-<table><tr><th>Label</th><th>Count</th><th>% of Total</th></tr>
-<tr><td><code>jira-autofix</code></td><td>225</td><td>99.1%</td></tr>
-<tr><td><code>jira-autofix-pending</code></td><td>9</td><td>4.0%</td></tr>
-<tr><td><code>jira-autofix-review</code></td><td>65</td><td>28.6%</td></tr>
-<tr><td><code>jira-autofix-ci-failing</code></td><td>8</td><td>3.5%</td></tr>
-<tr><td><code>jira-autofix-merged</code></td><td>48</td><td>21.1%</td></tr>
-<tr><td><code>jira-autofix-rejected</code></td><td>26</td><td>11.5%</td></tr>
+<h3>Label Distribution</h3><table><tr><th>Label</th><th>Count</th><th>% of Total</th></tr>
+<tr><td><code>jira-autofix</code></td><td>861</td><td>55.7%</td></tr>
+<tr><td><code>jira-autofix-pending</code></td><td>10</td><td>0.6%</td></tr>
+<tr><td><code>jira-autofix-review</code></td><td>482</td><td>31.2%</td></tr>
+<tr><td><code>jira-autofix-ci-failing</code></td><td>1</td><td>0.1%</td></tr>
+<tr><td><code>jira-autofix-merged</code></td><td>48</td><td>3.1%</td></tr>
+<tr><td><code>jira-autofix-rejected</code></td><td>26</td><td>1.7%</td></tr>
 <tr><td><code>jira-autofix-max-retries</code></td><td>0</td><td>0.0%</td></tr>
-<tr><td><code>jira-autofix-researched</code></td><td>2</td><td>0.9%</td></tr>
-<tr><td><code>jira-autofix-blocked</code></td><td>69</td><td>30.4%</td></tr>
-</table>
-<p><em>Note: Issues may carry multiple labels. The label distribution counts raw label occurrences; the pipeline summary deduplicates by highest-priority label.</em></p>
+<tr><td><code>jira-autofix-researched</code></td><td>2</td><td>0.1%</td></tr>
+<tr><td><code>jira-autofix-blocked</code></td><td>117</td><td>7.6%</td></tr>
+</table><p><em>Note: Issues may carry multiple labels; label counts may sum to more than total issues.</em></p>
 <h3>By Project</h3>
 <table><tr><th>Project</th><th>Queue</th><th>Active</th><th>Merged</th><th>Failed</th><th>Researched</th><th>Blocked</th><th>Total</th></tr>
-<tr><td>AIPCC</td><td>3</td><td>47</td><td>17</td><td>3</td><td>2</td><td>20</td><td>92</td></tr>
+<tr><td>AIPCC</td><td>2</td><td>34</td><td>17</td><td>3</td><td>2</td><td>34</td><td>92</td></tr>
 <tr><td>INFERENG</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>10</td><td>10</td></tr>
-<tr><td>RHAIENG</td><td>0</td><td>10</td><td>9</td><td>1</td><td>0</td><td>10</td><td>30</td></tr>
-<tr><td>RHAIFIRST</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>1</td><td>1</td></tr>
-<tr><td>RHOAIENG</td><td>0</td><td>22</td><td>22</td><td>22</td><td>0</td><td>28</td><td>94</td></tr>
-</table>
-<h3>Attention Required</h3>
-<p>69 blocked issues, 0 at max-retries.</p>
-<p><a href="https://redhat.atlassian.net/issues/?jql=labels%20in%20(%22jira-autofix-blocked%22%2C%22jira-autofix-max-retries%22)%20AND%20project%20not%20in%20(TP)%20ORDER%20BY%20updated%20DESC" target="_blank">View all blocked &amp; max-retries issues in Jira &rarr;</a></p>
+<tr><td>RHAIENG</td><td>0</td><td>2</td><td>9</td><td>1</td><td>0</td><td>19</td><td>31</td></tr>
+<tr><td>RHAIFIRST</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>2</td><td>2</td></tr>
+<tr><td>RHOAIENG</td><td>1</td><td>8</td><td>22</td><td>22</td><td>0</td><td>44</td><td>97</td></tr>
+<tr><td><strong>Total</strong></td><td><strong>3</strong></td><td><strong>44</strong></td><td><strong>48</strong></td><td><strong>26</strong></td><td><strong>2</strong></td><td><strong>109</strong></td><td><strong>232</strong></td></tr></table>
+<h3>Blocked &amp; Max-Retries</h3>
+<p><a href="https://redhat.atlassian.net/issues/?jql=labels%20in%20%28%22jira-autofix-blocked%22%2C%20%22jira-autofix-max-retries%22%29%20AND%20project%20not%20in%20%28TP%29%20ORDER%20BY%20updated%20DESC" target="_blank">117 issues requiring attention</a></p>
 <h2 id="rfe">rfe-creator Pipeline</h2>
-<h3>Pipeline Summary</h3>
-<table><tr><th>Metric</th><th>Count</th></tr>
-<tr><td>Total Unique Issues</td><td>1741</td></tr>
-<tr><td>Auto-Created</td><td>559</td></tr>
-<tr><td>Auto-Revised</td><td>480</td></tr>
-<tr><td>Split (original)</td><td>90</td></tr>
-<tr><td>Split (result)</td><td>325</td></tr>
-<tr><td>Needs Attention</td><td>711</td></tr>
-<tr><td>Excluded (ignore)</td><td>165</td></tr>
-<tr><td>Quality Passed (rubric)</td><td>1420</td></tr>
-<tr><td>Feasibility Pass</td><td>188</td></tr>
-<tr><td>Feasibility Fail</td><td>0</td></tr>
-<tr><td>Feasibility Unknown</td><td>1</td></tr>
+<h3>Pipeline Summary</h3><table><tr><th>Metric</th><th>Count</th></tr>
+<tr><td>Total issues</td><td>1743</td></tr>
+<tr><td>Created</td><td>2</td></tr>
+<tr><td>Refined</td><td>31</td></tr>
+<tr><td>Split</td><td>60</td></tr>
+<tr><td>Needs Attention</td><td>91</td></tr>
+<tr><td>Excluded</td><td>132</td></tr>
+<tr><td>Rubric Pass</td><td>1422</td></tr>
+<tr><td>Feasibility</td><td>5</td></tr>
 </table>
-<h3>Label Distribution</h3>
-<table><tr><th>Label</th><th>Count</th><th>% of Total</th></tr>
-<tr><td><code>rfe-creator-auto-created</code></td><td>559</td><td>32.1%</td></tr>
-<tr><td><code>rfe-creator-auto-revised</code></td><td>480</td><td>27.6%</td></tr>
-<tr><td><code>rfe-creator-split-original</code></td><td>90</td><td>5.2%</td></tr>
-<tr><td><code>rfe-creator-split-result</code></td><td>325</td><td>18.7%</td></tr>
-<tr><td><code>rfe-creator-needs-attention</code></td><td>711</td><td>40.8%</td></tr>
-<tr><td><code>rfe-creator-ignore</code></td><td>165</td><td>9.5%</td></tr>
-<tr><td><code>rfe-creator-autofix-rubric-pass</code></td><td>1420</td><td>81.6%</td></tr>
-<tr><td><code>rfe-creator-feasibility-pass</code></td><td>188</td><td>10.8%</td></tr>
+<h3>Label Distribution</h3><table><tr><th>Label</th><th>Count</th><th>% of Total</th></tr>
+<tr><td><code>rfe-creator-auto-created</code></td><td>559</td><td>14.2%</td></tr>
+<tr><td><code>rfe-creator-auto-revised</code></td><td>480</td><td>12.2%</td></tr>
+<tr><td><code>rfe-creator-split-original</code></td><td>90</td><td>2.3%</td></tr>
+<tr><td><code>rfe-creator-split-result</code></td><td>325</td><td>8.2%</td></tr>
+<tr><td><code>rfe-creator-needs-attention</code></td><td>713</td><td>18.1%</td></tr>
+<tr><td><code>rfe-creator-ignore</code></td><td>165</td><td>4.2%</td></tr>
+<tr><td><code>rfe-creator-autofix-rubric-pass</code></td><td>1422</td><td>36.0%</td></tr>
+<tr><td><code>rfe-creator-feasibility-pass</code></td><td>191</td><td>4.8%</td></tr>
 <tr><td><code>rfe-creator-feasibility-fail</code></td><td>0</td><td>0.0%</td></tr>
-<tr><td><code>rfe-creator-feasibility-unknown</code></td><td>1</td><td>0.1%</td></tr>
-</table>
+<tr><td><code>rfe-creator-feasibility-unknown</code></td><td>1</td><td>0.0%</td></tr>
+</table><p><em>Note: Issues may carry multiple labels; label counts may sum to more than total issues.</em></p>
 <h3>By Project</h3>
-<table><tr><th>Project</th><th>Created</th><th>Revised</th><th>Rubric Pass</th><th>Attention</th><th>Excluded</th><th>Total</th></tr>
-<tr><td>AIPCC</td><td>0</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
-<tr><td>RHAIENG</td><td>1</td><td>0</td><td>1</td><td>1</td><td>0</td><td>1</td></tr>
-<tr><td>RHAIRFE</td><td>458</td><td>439</td><td>1211</td><td>627</td><td>161</td><td>1521</td></tr>
-<tr><td>RHAISTRAT</td><td>100</td><td>40</td><td>204</td><td>82</td><td>4</td><td>215</td></tr>
-<tr><td>RHOAIENG</td><td>0</td><td>1</td><td>2</td><td>1</td><td>0</td><td>2</td></tr>
-</table>
+<table><tr><th>Project</th><th>Created</th><th>Refined</th><th>Split</th><th>Needs Attention</th><th>Excluded</th><th>Rubric Pass</th><th>Feasibility</th><th>Total</th></tr>
+<tr><td>AIPCC</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>2</td><td>0</td><td>2</td></tr>
+<tr><td>RHAIENG</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>1</td><td>0</td><td>1</td></tr>
+<tr><td>RHAIRFE</td><td>1</td><td>31</td><td>60</td><td>86</td><td>130</td><td>1212</td><td>2</td><td>1522</td></tr>
+<tr><td>RHAISTRAT</td><td>1</td><td>0</td><td>0</td><td>5</td><td>2</td><td>205</td><td>3</td><td>216</td></tr>
+<tr><td>RHOAIENG</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>2</td><td>0</td><td>2</td></tr>
+<tr><td><strong>Total</strong></td><td><strong>2</strong></td><td><strong>31</strong></td><td><strong>60</strong></td><td><strong>91</strong></td><td><strong>132</strong></td><td><strong>1422</strong></td><td><strong>5</strong></td><td><strong>1743</strong></td></tr></table>
 <h3>Needs Attention</h3>
-<p>711 issues flagged for attention.</p>
-<p><a href="https://redhat.atlassian.net/issues/?jql=labels%20%3D%20%22rfe-creator-needs-attention%22%20AND%20project%20not%20in%20(TP)%20ORDER%20BY%20updated%20DESC" target="_blank">View all needs-attention issues in Jira &rarr;</a></p>
+<p><a href="https://redhat.atlassian.net/issues/?jql=labels%20in%20%28%22rfe-creator-needs-attention%22%29%20AND%20project%20not%20in%20%28TP%29%20ORDER%20BY%20updated%20DESC" target="_blank">713 issues requiring attention</a></p>
 <h2 id="strat">strat-creator Pipeline</h2>
-<h3>Pipeline Summary</h3>
-<table><tr><th>Metric</th><th>Count</th></tr>
-<tr><td>Total Unique Issues</td><td>529</td></tr>
-<tr><td>Auto-Created</td><td>217</td></tr>
-<tr><td>Auto-Refined</td><td>205</td></tr>
-<tr><td>Quality Passed (rubric)</td><td>174</td></tr>
-<tr><td>Release Tagged (3.5)</td><td>468</td></tr>
-<tr><td>Needs Attention</td><td>43</td></tr>
+<h3>Pipeline Summary</h3><table><tr><th>Metric</th><th>Count</th></tr>
+<tr><td>Total issues</td><td>533</td></tr>
+<tr><td>Created</td><td>1</td></tr>
+<tr><td>Refined</td><td>0</td></tr>
+<tr><td>Rubric Pass</td><td>175</td></tr>
+<tr><td>Release Tagged</td><td>349</td></tr>
+<tr><td>Needs Attention</td><td>8</td></tr>
 <tr><td>Epics Created</td><td>0</td></tr>
 </table>
-<h3>Label Distribution</h3>
-<table><tr><th>Label</th><th>Count</th><th>% of Total</th></tr>
-<tr><td><code>strat-creator-auto-created</code></td><td>217</td><td>41.0%</td></tr>
-<tr><td><code>strat-creator-auto-refined</code></td><td>205</td><td>38.8%</td></tr>
-<tr><td><code>strat-creator-rubric-pass</code></td><td>174</td><td>32.9%</td></tr>
-<tr><td><code>strat-creator-3.5</code></td><td>468</td><td>88.5%</td></tr>
-<tr><td><code>strat-creator-needs-attention</code></td><td>43</td><td>8.1%</td></tr>
+<h3>Label Distribution</h3><table><tr><th>Label</th><th>Count</th><th>% of Total</th></tr>
+<tr><td><code>strat-creator-auto-created</code></td><td>219</td><td>19.6%</td></tr>
+<tr><td><code>strat-creator-auto-refined</code></td><td>207</td><td>18.6%</td></tr>
+<tr><td><code>strat-creator-rubric-pass</code></td><td>175</td><td>15.7%</td></tr>
+<tr><td><code>strat-creator-3.5</code></td><td>471</td><td>42.2%</td></tr>
+<tr><td><code>strat-creator-needs-attention</code></td><td>43</td><td>3.9%</td></tr>
 <tr><td><code>strat-epics-created</code></td><td>0</td><td>0.0%</td></tr>
-</table>
+</table><p><em>Note: Issues may carry multiple labels; label counts may sum to more than total issues.</em></p>
 <h3>By Project</h3>
-<table><tr><th>Project</th><th>Created</th><th>Refined</th><th>Rubric Pass</th><th>Release Tagged</th><th>Attention</th><th>Epics</th><th>Total</th></tr>
+<table><tr><th>Project</th><th>Created</th><th>Refined</th><th>Rubric Pass</th><th>Release Tagged</th><th>Needs Attention</th><th>Epics Created</th><th>Total</th></tr>
 <tr><td>RHAIENG</td><td>0</td><td>0</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
-<tr><td>RHAIRFE</td><td>0</td><td>0</td><td>0</td><td>308</td><td>0</td><td>0</td><td>308</td></tr>
-<tr><td>RHAISTRAT</td><td>217</td><td>205</td><td>174</td><td>159</td><td>43</td><td>0</td><td>220</td></tr>
-</table>
+<tr><td>RHAIRFE</td><td>0</td><td>0</td><td>0</td><td>310</td><td>0</td><td>0</td><td>310</td></tr>
+<tr><td>RHAISTRAT</td><td>1</td><td>0</td><td>175</td><td>38</td><td>8</td><td>0</td><td>222</td></tr>
+<tr><td><strong>Total</strong></td><td><strong>1</strong></td><td><strong>0</strong></td><td><strong>175</strong></td><td><strong>349</strong></td><td><strong>8</strong></td><td><strong>0</strong></td><td><strong>533</strong></td></tr></table>
 <h3>Needs Attention</h3>
-<p>43 issues flagged for attention.</p>
-<p><a href="https://redhat.atlassian.net/issues/?jql=labels%20%3D%20%22strat-creator-needs-attention%22%20AND%20project%20not%20in%20(TP)%20ORDER%20BY%20updated%20DESC" target="_blank">View all needs-attention issues in Jira &rarr;</a></p>
+<p><a href="https://redhat.atlassian.net/issues/?jql=labels%20in%20%28%22strat-creator-needs-attention%22%29%20AND%20project%20not%20in%20%28TP%29%20ORDER%20BY%20updated%20DESC" target="_blank">43 issues requiring attention</a></p>
 <h2 id="testplan">test-plan Pipeline</h2>
-<h3>Pipeline Summary</h3>
-<table><tr><th>Metric</th><th>Count</th></tr>
-<tr><td>Total Unique Issues</td><td>1</td></tr>
-<tr><td>Auto-Created</td><td>1</td></tr>
-<tr><td>Rubric Pass</td><td>0</td></tr>
+<h3>Pipeline Summary</h3><table><tr><th>Metric</th><th>Count</th></tr>
+<tr><td>Total issues</td><td>2</td></tr>
+<tr><td>Created</td><td>1</td></tr>
+<tr><td>Rubric Pass</td><td>1</td></tr>
 <tr><td>Rubric Fail</td><td>0</td></tr>
 <tr><td>Auto-Revised</td><td>0</td></tr>
-<tr><td>Quality Rate</td><td>0%</td></tr>
+<tr><td><strong>Quality rate</strong></td><td><strong>100.0%</strong></td></tr>
 </table>
-<h3>Label Distribution</h3>
-<table><tr><th>Label</th><th>Count</th><th>% of Total</th></tr>
-<tr><td><code>test-plan-auto-created</code></td><td>1</td><td>100.0%</td></tr>
-<tr><td><code>test-plan-rubric-pass</code></td><td>0</td><td>0.0%</td></tr>
+<h3>Label Distribution</h3><table><tr><th>Label</th><th>Count</th><th>% of Total</th></tr>
+<tr><td><code>test-plan-auto-created</code></td><td>2</td><td>50.0%</td></tr>
+<tr><td><code>test-plan-rubric-pass</code></td><td>1</td><td>25.0%</td></tr>
 <tr><td><code>test-plan-rubric-fail</code></td><td>0</td><td>0.0%</td></tr>
-<tr><td><code>test-plan-auto-revised</code></td><td>0</td><td>0.0%</td></tr>
-</table>
+<tr><td><code>test-plan-auto-revised</code></td><td>1</td><td>25.0%</td></tr>
+</table><p><em>Note: Issues may carry multiple labels; label counts may sum to more than total issues.</em></p>
 <h3>By Project</h3>
 <table><tr><th>Project</th><th>Created</th><th>Rubric Pass</th><th>Rubric Fail</th><th>Auto-Revised</th><th>Total</th></tr>
-<tr><td>RHAISTRAT</td><td>1</td><td>0</td><td>0</td><td>0</td><td>1</td></tr>
+<tr><td>RHAISTRAT</td><td>1</td><td>1</td><td>0</td><td>0</td><td>2</td></tr>
+<tr><td><strong>Total</strong></td><td><strong>1</strong></td><td><strong>1</strong></td><td><strong>0</strong></td><td><strong>0</strong></td><td><strong>2</strong></td></tr></table>
+<h3>Quality Failures</h3>
+<p><a href="https://redhat.atlassian.net/issues/?jql=labels%20in%20%28%22test-plan-rubric-fail%22%29%20AND%20project%20not%20in%20%28TP%29%20ORDER%20BY%20updated%20DESC" target="_blank">0 issues requiring attention</a></p>
+<h2 id="docpipeline">doc-pipeline Pipeline</h2>
+<h3>Pipeline Summary</h3><table><tr><th>Metric</th><th>Count</th></tr>
+<tr><td>Total issues</td><td>9</td></tr>
+<tr><td>Queue</td><td>0</td></tr>
+<tr><td>Invoked</td><td>0</td></tr>
+<tr><td>Contributed</td><td>9</td></tr>
 </table>
-<h3>Quality Issues</h3>
-<p>0 issues failed rubric.</p>
-<p><a href="https://redhat.atlassian.net/issues/?jql=labels%20%3D%20%22test-plan-rubric-fail%22%20AND%20project%20not%20in%20(TP)%20ORDER%20BY%20updated%20DESC" target="_blank">View all rubric-fail issues in Jira &rarr;</a></p>
+<h3>Label Distribution</h3><table><tr><th>Label</th><th>Count</th><th>% of Total</th></tr>
+<tr><td><code>ai1st-doc-start</code></td><td>0</td><td>0.0%</td></tr>
+<tr><td><code>ai1st-doc-invoked</code></td><td>2</td><td>18.2%</td></tr>
+<tr><td><code>ai1st-doc-contributed</code></td><td>9</td><td>81.8%</td></tr>
+</table><p><em>Note: Issues may carry multiple labels; label counts may sum to more than total issues.</em></p>
+<h3>By Project</h3>
+<table><tr><th>Project</th><th>Queue</th><th>Invoked</th><th>Contributed</th><th>Total</th></tr>
+<tr><td>RHAISTRAT</td><td>0</td><td>0</td><td>2</td><td>2</td></tr>
+<tr><td>RHOAIENG</td><td>0</td><td>0</td><td>7</td><td>7</td></tr>
+<tr><td><strong>Total</strong></td><td><strong>0</strong></td><td><strong>0</strong></td><td><strong>9</strong></td><td><strong>9</strong></td></tr></table>
 </body></html>
